@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 TEST</title>
+  </head>
+  <body>
+    <h1>D3 TEST</h1>
+    <svg width="500" height="500"></svg>
+    <script src="http://d3js.org/d3.v3.js"></script>
+    <script>
+      const data = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+      const svg = d3.select('svg');
+
+      data.forEach((d, i) => {
+        svg
+          .append('rect')
+          .attr('height', data[i])
+          .attr('width', 40)
+          .attr('x', 50 * i)
+          .attr('y', 100 - data[i]);
+      });
+    </script>
+  </body>
+</html>
