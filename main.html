@@ -13,14 +13,15 @@
       const data = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
       const svg = d3.select('svg');
 
-      data.forEach((d, i) => {
-        svg
-          .append('rect')
-          .attr('height', data[i])
-          .attr('width', 40)
-          .attr('x', 50 * i)
-          .attr('y', 100 - data[i]);
-      });
+      svg
+        .selectAll('bar')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('height', (d, i) => d)
+        .attr('width', 40)
+        .attr('x', (d, i) => 50 * i)
+        .attr('y', (d, i) => 100 - d);
     </script>
   </body>
 </html>
